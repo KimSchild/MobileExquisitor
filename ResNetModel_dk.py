@@ -10,7 +10,6 @@ from torchvision import models
 no_top_features = 5
 
 # SETTING UP RESNET
-
 def read_classes(class_path):
     with open(class_path) as f:
         return [line.strip() for line in f.readlines()]
@@ -34,23 +33,18 @@ def read_model(model_path):
     resnet.fc = torch.nn.Linear(num_ftrs, len(classes))
     resnet.load_state_dict(new_state_dict)
     resnet.eval()
-    #return resnet
     return classes, resnet
 
 
 # if we wanted to print the names
+#INSERT link to local labels_words.txt here
 with open('/Users/kimschild/_ThesisFolder/ResNeXt-101/labels_words.txt') as f:
     classes_in_words = [line.strip() for line in f.readlines()]
-# with open('conceptList.txt') as f:
-   # classes_in_words = [line.strip() for line in f.readlines()]    
 
-
+#INSERT link to local model_best.pth here
 path = '/Users/kimschild/_ThesisFolder/ResNeXt-101/model_best.pth'
-#path = '/Users/mac/Documents/ITU/4/Thesis/ImageAnalysis/ResNeXt-101/model_best.pth'
 checkpoint = torch.load(path, map_location=torch.device('cpu')) # seems to work despite warning, returns a dict
-#print("checkpoint = {}".format(checkpoint.keys()))
 classes = checkpoint["classes"]
-#print("classes = {}".format(len(classes)))
 resnet = models.resnext101_32x8d()
 x = checkpoint.get('state_dict')
 
@@ -61,7 +55,6 @@ new_state_dict = OrderedDict()
 for k, v in x.items():
     name = k[7:] # remove `module.`
     new_state_dict[name] = v
-    #print(name, v)
 # load params
 
 #set number of classes
@@ -95,8 +88,8 @@ idx_labels_with_n = list()
 label_words_list = list()
 
 def load_n_Label_to_Idx():
+    #INSERT link to local conceptsRollBindPromoteSubsampleNonLeaf.txt here
     with open('/Users/kimschild/_ThesisFolder/ResNeXt-101/conceptsRollBindPromoteSubsampleNonLeaf.txt', 'r') as f:
-    #with open('/Users/mac/Documents/ITU/4/Thesis/ImageAnalysis/ResNeXt-101/conceptsRollBindPromoteSubsampleNonLeaf.txt', 'r') as f:    
         all_lines = f.readlines()
     for n_number in all_lines:
         new = n_number.strip()
@@ -178,14 +171,11 @@ def printFormatteddTensors(loopEnd, bothdimension_tensor):
     sorted_values = torch.gather(value_tensor, dim=-1, index=new_idx) # sort values according to index
     v = sorted_values.data.numpy()
     i = sorted_idx.data.numpy()
-    #ind =np.array2string(i[0], precision=8, separator=',',suppress_small=False)
-    #vect = np.array2string(v[0], precision=8, separator=',',suppress_small=False)
     print('printFormatteddTensors finished')
     return (i.tolist()[0], v.tolist()[0])
 
 ## get images and apply image analysis
 vector_collection = list()
-#image_list = load_Images_From_Folder('/Users/kimschild/_ThesisFolder/Images')
 
 #returns a string vector label:prob, etc
 def apply_model(img, path):

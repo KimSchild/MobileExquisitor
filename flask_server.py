@@ -33,7 +33,6 @@ def handle_request():
         sub_directory = dirpath + filenameString
         print("\nReceived : " + filenameString)
         zippedImageBatch.save(filenameString)
-        ###### programmatically delete zips and extracted zips when done?
         # Create a ZipFile Object and load sample.zip in it
         with ZipFile(filenameString, 'r') as zipObj:
         # Extract all the contents of zip file into sub_directory
@@ -43,7 +42,7 @@ def handle_request():
         number_images_in_Folder = len(os.listdir(sub_directory))   
 
         executor = ThreadPoolExecutor(6)
-        futures = [executor.submit(try_multiple_operations, group, sub_directory, collection) # should not be same directory
+        futures = [executor.submit(try_multiple_operations, group, sub_directory, collection)
            for group in grouper(os.listdir(sub_directory), 20)]
         concurrent.futures.wait(futures)
             
@@ -62,15 +61,9 @@ def try_multiple_operations(imgFolder, sub_directory, collection):
                 print('opened img file')
                 data = ResNetModel_dk.apply_model(f, img)
                 print('data ', data)
-                #print('current ', current)
-                #print('all images in folder ', number_images_in_Folder)
-                #print('analysed ', current, ' / ' , number_images_in_Folder)
-                #current= current + 1
                 collection.append(data)
             except:
                 print('no image left in list or error with item')
-                # save img name and try again?
-
 
 def grouper(imgList, n, fillvalue=None):
     "Collect data into fixed-length chunks or blocks"
@@ -110,13 +103,6 @@ def repeat(object, times=None):
         for i in range(times):
             yield object
 
-#app.run(host="192.168.1.200", port=5000, debug=True) # NV
-#app.run(host="192.168.1.200", port=5000, debug=True) # Szandra
+# INSERT your IP address here
 app.run(host="192.168.1.202", port=5000, debug=True)
-#app.run(host="100.101.212.14", port=5000, debug=True) # common area
 
-
-
-
-#192.168.1.192 ipv4 address from wifi settings --> advanced -->TCP/IP
-# IP address: settings --> wifi -->below status connected
