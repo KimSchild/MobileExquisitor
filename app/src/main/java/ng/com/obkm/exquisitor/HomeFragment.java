@@ -101,7 +101,7 @@ public class HomeFragment extends Fragment {
         vectorLab = VectorLab.get(getActivity());
         cursor = getActivity().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, null, null, MediaStore.Images.Media._ID);
         View v = inflater.inflate(R.layout.fragment_home_const, container, false);
-        //createPagerDialog();
+        createPagerDialog();
         return v;
     }
 

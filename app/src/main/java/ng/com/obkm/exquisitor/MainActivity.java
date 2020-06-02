@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
             tryToOpenFragments();
         }
-        SharedPreferenceUtil.writeToSharedPreferences(mContext);
+//        SharedPreferenceUtil.writeToSharedPreferences(mContext);
 
     }
 
