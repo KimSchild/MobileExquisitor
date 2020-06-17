@@ -25,7 +25,7 @@
     <string name="intro_fast_forward_what">Fast forward will put the six images closest to your positively rated examples on the screen.</string>
     <string name="intro_fast_forward_when_to_use">It can help if you feel that you are on a right track and want to explore the suggested photos quickly.</string>
     <string name="when_to_use">When to use?</string>
-    <string name="intro_help_text">Don\'t worry. You don\'t have to remember all of this. You can always look it up pressing the help button.</string>
+    <string name="intro_help_text">Don\'t worry. You don\'t have to remember all of this. You can always get some help by pressing the 3 dots.</string>
     <string name="intro_start_over_what">The start over deletes all your prior ratings and starts a completely new session.</string>
     <string name="intro_start_over_when_to_use">It can help if you would like to start searching in a new and different category.</string>
     <string name="updateButton">Update</string>

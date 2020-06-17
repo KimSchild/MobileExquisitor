@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GitVersion.iml" filepath="$PROJECT_DIR$/GitVersion.iml" group="GitVersion" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="GitVersion/app" />
+      <module fileurl="file://$PROJECT_DIR$/MobileExquisitor.iml" filepath="$PROJECT_DIR$/MobileExquisitor.iml" group="MobileExquisitor" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="MobileExquisitor/app" />
     </modules>
   </component>
 </project>
