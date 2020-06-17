@@ -92,7 +92,6 @@ public class HomeFragment extends Fragment {
         VectorLab.get(getActivity()).removeSeen();
         setHasOptionsMenu(true);
         mSC = new MediaStoreCheck(mContext);
-//        mSC.analyseNewImages();
     }
 
     @Override
@@ -101,7 +100,7 @@ public class HomeFragment extends Fragment {
         vectorLab = VectorLab.get(getActivity());
         cursor = getActivity().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, null, null, MediaStore.Images.Media._ID);
         View v = inflater.inflate(R.layout.fragment_home_const, container, false);
-        //createPagerDialog();
+        createPagerDialog();
         return v;
     }
 
@@ -119,7 +118,8 @@ public class HomeFragment extends Fragment {
         {*/
             if (numberOfFeedback < 1) { // before the first swipe, random 6 images, TODO: imageClicked
                 //Log.i("lifecycle", "fix test set loaded.");
-                mImagesOnScreenList = getRandomSixList();
+                //mImagesOnScreenList = getRandomSixList();
+                mImagesOnScreenList = makeStartScreenListForTesting();
             }
             if (!mImagesOnScreenListSaved.isEmpty()) {
                 mImagesOnScreenList = mImagesOnScreenListSaved;
@@ -130,7 +130,7 @@ public class HomeFragment extends Fragment {
     }
 
     // method to return always same 6 images on screen
-    /*private List<String> makeStartScreenListForTesting()
+    private List<String> makeStartScreenListForTesting()
     {
         Log.i("lifecycle", "makeStartScreenListForTesting: called ");
         List<String> testScreenList = new ArrayList<>();
@@ -152,7 +152,7 @@ public class HomeFragment extends Fragment {
         }
         //searchStart = false;
         return testScreenList;
-    }*/
+    }
 
     @Override
     public void onPause() {
@@ -644,7 +644,7 @@ public class HomeFragment extends Fragment {
         //Log.i(TAG, "training values size " + trainingDataValues.size());
         trainingDataLabels.clear();
         ratings.clear();
-        List<String> randomPathList = getRandomSixList();
+        List<String> randomPathList = makeStartScreenListForTesting(); // Loads seeded image list!
         populateMainScreenList(randomPathList);
         mImagesOnScreenList = randomPathList;
         mImagesOnScreenListSaved = mImagesOnScreenList;

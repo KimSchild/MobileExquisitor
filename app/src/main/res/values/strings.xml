@@ -18,7 +18,7 @@
     <string name="start_over_button">Start Over</string>
     <string name="fast_forward_button">Fast Forward</string>
     <string name="intro_text">Hej! We wanna give you a short introduction on how to use Mobile Exquisitor to explore your photo collection. It won\'t take longer than 3 min.</string>
-    <string name="intro_rating_text">You can always find the current suggestions on the Main Screen. You can rate an image by clicking on it and then swiping it to the right in case you want to rate it as positive, or to the left if you consider it as a negative example. </string>
+    <string name="intro_rating_text">You find the current suggestions on the Home Screen. You can rate an image by clicking on it. Swiping to the right is a positive rating. Swiping to the left is a negative rating. </string>
     <string name="intro_reload_what">Reload will give you six random images that you haven’t seen so far.</string>
     <string name="intro_reload_when_to_use">It can help if you get stuck in one topic, and you want to turn the search in a new direction but you don’t want to start an entirely new session.</string>
     <string name="intro_navigation_text">You can check the images that you rated by going to the Negatives or Positives Screens. To remove one of your ratings, hold your finger on the image.</string>
